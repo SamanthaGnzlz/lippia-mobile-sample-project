@@ -1,8 +1,6 @@
 package com.crowdar.examples.steps;
 
 import com.crowdar.core.PageSteps;
-import com.crowdar.core.actions.MobileActionManager;
-import com.crowdar.examples.constants.HomeConstants;
 import com.crowdar.examples.services.HomeService;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -18,14 +16,25 @@ public class HomeSteps extends PageSteps {
         HomeService.isViewLoaded();
     }
 
-    @When("The user changes the language")
-    public void doChangeLanguage() {
-        MobileActionManager.click(HomeConstants.CHANGE_LANGUAGE_BUTTON_LOCATOR);
+    @When("The user taps on + button")
+    public void tapsPlusButton() {
+        HomeService.tapPlusButton();
     }
 
-    @When("The user log out of the app")
-    public void doSignOut() {
-        MobileActionManager.click(HomeConstants.SIGN_OUT_BUTTON_LOCATOR);
+    @When("The user sets the hours to (.*):(.*)hs")
+    public void setHours(String hour, String minute) {
+        HomeService.setHours(hour, minute);
     }
+
+    @When("The user taps on save button")
+    public void tapsSaveButton() {
+        HomeService.tapSaveButton();
+    }
+
+    @Then("a card is displayed with the hours logged")
+    public void isCardDisplayed() {
+        HomeService.isCardDisplayed();
+    }
+
 
 }

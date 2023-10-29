@@ -1,6 +1,7 @@
 package com.crowdar.examples.steps;
 
 import com.crowdar.core.PageSteps;
+import com.crowdar.core.PropertyManager;
 import com.crowdar.core.actions.MobileActionManager;
 import com.crowdar.examples.constants.LoginConstants;
 import com.crowdar.examples.services.LoginService;
@@ -15,19 +16,13 @@ import cucumber.api.java.en.When;
 public class LoginSteps extends PageSteps {
 
     @Given("The app is loaded correctly")
-    @Then("Login page is displayed")
     public void isLoginPageVisible() {
         LoginService.isViewLoaded();
     }
 
-    @When("The user goes to the Sign Up page")
-    public void goToSignUp() {
-        MobileActionManager.click(LoginConstants.SIGN_UP_BUTTON_LOCATOR);
+    @Given("The user is logged in")
+    @When("The user logs in the application with email and password")
+    public void doLoginProcess() {
+        LoginService.doLogin(PropertyManager.getProperty("email"), PropertyManager.getProperty("password"));
     }
-
-    @When("The user logs in the application with: (.*), (.*)")
-    public void doLoginProcess(String email, String password) {
-        LoginService.doLogin(email, password);
-    }
-
 }
