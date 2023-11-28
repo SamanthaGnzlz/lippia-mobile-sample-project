@@ -36,7 +36,7 @@
                 <cucumber.runner>testng.xml</cucumber.runner>
                 <crowdar.avd>Pixel3</crowdar.avd>
                 <crowdar.appLocation>
-                    C:\\\\Users\\\\erika\\\\Escritorio\\\\lippia-mobile-sample-project\\\\sample_apk\\\\Clockify.apk
+                    C:\\\\Users\\\\erika\\\\GitHub\\\\lippia-mobile-sample-project\\\\sample_apk\\\\Clockify.apk
                 </crowdar.appLocation>
                 <crowdar.deviceName>Pixel3</crowdar.deviceName>
             </properties>

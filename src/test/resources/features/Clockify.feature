@@ -1,10 +1,10 @@
-@TP9
+@TPFinal
 Feature: As a potential client i want to interact with the mobile application
 
   Background:
     Given The app is loaded correctly
 
-    @LogIn
+    @LogIn #TPfINAL
   Scenario: The user logs in
     When The user logs in the application with email and password
     Then Home page is displayed
