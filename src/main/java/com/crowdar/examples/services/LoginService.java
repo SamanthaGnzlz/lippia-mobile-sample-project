@@ -23,4 +23,8 @@ public class LoginService {
         Assert.assertTrue(MobileActionManager.isVisible(LoginConstants.EMAIL_INPUT_LOCATOR), LoginConstants.VIEW_NOT_DISPLAYED_MESSAGE);
     }
 
+    public static void doLogOut() {
+        MobileActionManager.click(LoginConstants.LOG_OUT_BUTTON_LOCATOR);
+        MobileActionManager.click(LoginConstants.CONFIRM_LOG_OUT_LOCATOR);
+    }
 }

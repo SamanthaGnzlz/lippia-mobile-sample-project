@@ -2,6 +2,7 @@ package com.crowdar.examples.services;
 
 import com.crowdar.core.actions.MobileActionManager;
 import com.crowdar.examples.constants.HomeConstants;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 /**
@@ -10,6 +11,7 @@ import org.testng.Assert;
  * If we need to only complete a field or click a button, we can put it in the steps.
  */
 public class HomeService {
+
 
     public static void isViewLoaded() {
         MobileActionManager.waitVisibility(HomeConstants.PLUS_BUTTON_LOCATOR);
@@ -22,29 +24,22 @@ public class HomeService {
 
     }
 
-    public static void setHours(String hour, String minute) {
-        setTime(hour, HomeConstants.HOURS_LOCATOR, HomeConstants.LOWER_BUTTON_HOURS_LOCATOR);
-        setTime(minute, HomeConstants.MINUTES_LOCATOR, HomeConstants.LOWER_BUTTON_MINUTES_LOCATOR );
+
+    public static void tapHamburgerButton() {
+        MobileActionManager.click(HomeConstants.HAMBURGER_MENU_LOCATOR);
     }
 
-    private static void setTime(String time, String currentValueLocator, String lowerButtonLocator) {
-        while (true) {
-            String hourCurrentValue = MobileActionManager.getText(currentValueLocator);
-            if (hourCurrentValue.equals(time)){
-                break;
-            }
-            MobileActionManager.click(lowerButtonLocator);
-        }
+    public static void tapSettingsButton() {
+        MobileActionManager.waitVisibility(HomeConstants.SETTINGS_LOCATOR);
+        MobileActionManager.click(HomeConstants.SETTINGS_LOCATOR);
     }
 
-    public static void tapSaveButton() {
-        MobileActionManager.click(HomeConstants.SAVE_BUTTON_LOCATOR);
+    public static void enableDarkMode() {
+        MobileActionManager.click(HomeConstants.DARK_BUTTON_LOCATOR);
     }
 
-    public static void isCardDisplayed() {
-        MobileActionManager.waitVisibility(HomeConstants.CARD_LOCATOR);
-        Assert.assertTrue(MobileActionManager.isVisible(HomeConstants.CARD_LOCATOR), HomeConstants.CARD_NOT_DISPLAYED_MESSAGE);
+    public static void checkDarkMode() {
+        WebElement element = MobileActionManager.getElement(HomeConstants.DARK_BUTTON_LOCATOR);
+        Assert.assertEquals(element.getAttribute("checked"), "true", "La opcion Enable dark mode no esta seleccionada");
     }
-
-
 }

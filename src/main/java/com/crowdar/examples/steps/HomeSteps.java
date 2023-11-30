@@ -21,20 +21,23 @@ public class HomeSteps extends PageSteps {
         HomeService.tapPlusButton();
     }
 
-    @When("The user sets the hours to (.*):(.*)hs")
-    public void setHours(String hour, String minute) {
-        HomeService.setHours(hour, minute);
+    @When("The user taps on the three lines menu")
+    public void theUserTapsOnTheThreeLinesMenu() {
+        HomeService.tapHamburgerButton();
     }
 
-    @When("The user taps on save button")
-    public void tapsSaveButton() {
-        HomeService.tapSaveButton();
+    @io.cucumber.java.en.When("The user taps on settings button")
+    public void theUserTapsOnSettingsButton() {
+        HomeService.tapSettingsButton();
     }
 
-    @Then("a card is displayed with the hours logged")
-    public void isCardDisplayed() {
-        HomeService.isCardDisplayed();
+    @io.cucumber.java.en.When("The user enable dark mode")
+    public void theUserEnableDarkMode() {
+        HomeService.enableDarkMode();
     }
 
-
+    @io.cucumber.java.en.Then("Dark mode is enabled")
+    public void darkModeIsEnabled() {
+        HomeService.checkDarkMode();
+    }
 }
